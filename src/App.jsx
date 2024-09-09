@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { getId } from './reducers/anecdoteReducer'
+import { createAnecdote, increaseVote } from './reducers/anecdoteReducer'
 
 const App = () => {
   const anecdotes = useSelector(state => state)
@@ -20,25 +20,6 @@ const App = () => {
     console.log('toAdd', toAdd)
     dispatch(createAnecdote(content)) // metodi puuttuu reducerista
 
-  };
-
-  const increaseVote = (id) => {
-    return {
-      type: 'VOTE',
-      payload: { id }
-    };
-  };
-
-  const createAnecdote = (content) => {
-    console.log('content inside', content);
-    return {
-      type: 'CREATE',
-      payload: {
-        content,
-        id: getId(), // Tässä ongelma
-        votes: 0
-      }
-    };
   };
 
   return (
