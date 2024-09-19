@@ -1,7 +1,6 @@
 const filterReducer = (state = '', action) => {
   switch (action.type) {
     case 'FILTER':
-      console.log(action);
       return action.payload;
     default:
       return state;
@@ -9,6 +8,7 @@ const filterReducer = (state = '', action) => {
 };
 
 export const filterChange = (content) => {
+  console.log('filterChange', content);
   return {
     type: 'FILTER',
     payload: content

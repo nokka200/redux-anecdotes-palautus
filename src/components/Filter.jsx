@@ -5,7 +5,9 @@ const Filter = () => {
   const dispatch = useDispatch()
 
   const handleChange = (event) => {
-    dispatch(filterChange(event.target.value))
+    const content = event.target.value;
+    console.log('content', content);
+    dispatch(filterChange(content));
   }
 
   const style = {
@@ -14,7 +16,7 @@ const Filter = () => {
 
   return (
     <div style={style}>
-      filter <input onChange={handleChange} />
+      filter <input onChange={handleChange} name='filter'/>
     </div>
   )
 }

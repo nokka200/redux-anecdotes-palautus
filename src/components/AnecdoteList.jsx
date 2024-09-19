@@ -3,7 +3,16 @@ import { increaseVote } from '../reducers/anecdoteReducer'
 import Filter from './Filter'
 
 const AnecdoteList = () => {
-  const anecdotes = useSelector(state => state.anecdotes)
+  const anecdotes = useSelector(({ filter, anecdotes }) => {
+    console.log('filter', filter)
+    if (filter !== '') {
+      return anecdotes.filter(a => a.content.toLowerCase().includes(filter.toLowerCase()))
+    }
+    else {
+      return anecdotes
+    }
+  });
+
   const dispatch = useDispatch()
 
   const vote = (id) => {

@@ -11,6 +11,10 @@ const reducer = combineReducers({
 })
 
 const store = createStore(reducer)
+store.subscribe(() => {
+  const storeNow = store.getState()
+  console.log(storeNow)
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
