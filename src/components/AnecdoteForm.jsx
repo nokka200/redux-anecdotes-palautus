@@ -12,7 +12,7 @@ const AnecdoteForm = () => {
     console.log('content', content)
     const toAdd = createAnecdote(content)
     console.log('toAdd', toAdd)
-    dispatch(createAnecdote(content)) // metodi puuttuu reducerista
+    dispatch(createAnecdote(content))
   };
 
 
